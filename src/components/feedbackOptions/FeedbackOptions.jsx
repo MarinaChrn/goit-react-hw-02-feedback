@@ -1,10 +1,7 @@
 import { StyledButton, StyledList, StyledTitle } from "./FeedbackOptions.styled"
+import PropTypes from 'prop-types';
 
-const onClickBtn =(event)=> {
-    console.log(event.target.innerText)
-};
-
-export const FeedbackOptions = ({options}) => {
+export const FeedbackOptions = ({options, onLeaveFeedback}) => {
     return (
         <div>
             <StyledTitle>Please leave feedback</StyledTitle>
@@ -12,11 +9,16 @@ export const FeedbackOptions = ({options}) => {
                 {options.map((option)=>{
                     return (
                         <li key={option.length}>
-                            <StyledButton onClick={onClickBtn}>{option}</StyledButton>
+                            <StyledButton onClick={(event)=>{onLeaveFeedback(option)}}>{option}</StyledButton>
                         </li>
                     )
                 })}
             </StyledList>
         </div>
     )
+}
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.array.isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired,
 }
