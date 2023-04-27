@@ -8,7 +8,7 @@ export const FeedbackOptions = ({options, onLeaveFeedback}) => {
             <StyledList>
                 {options.map((option)=>{
                     return (
-                        <li key={option.length}>
+                        <li key={option}>
                             <StyledButton onClick={(event)=>{onLeaveFeedback(option)}}>{option}</StyledButton>
                         </li>
                     )

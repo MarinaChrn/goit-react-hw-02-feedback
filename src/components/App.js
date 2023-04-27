@@ -14,19 +14,9 @@ export class App extends Component {
   };
 
   onLeaveFeedback = (buttonName) => {
-    if (buttonName==="good") {
-      this.setState(prevState => ({
-      good: prevState.good + 1
+    this.setState(prevState => ({
+      [buttonName]: prevState[buttonName] + 1
     }))
-    } else if (buttonName==="bad"){
-      this.setState(prevState => ({
-        bad: prevState.bad + 1
-      })) 
-    } else if (buttonName==="neutral"){
-      this.setState(prevState => ({
-        neutral: prevState.neutral + 1
-      })) 
-    }
   }
 
   countTotalFeedback() {
